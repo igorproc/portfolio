@@ -1,7 +1,5 @@
 <template>
-  <div class="app-root">
-    <NuxtPwaManifest />
-
+  <div class="app-root" :data-theme="getCurrentTheme.currentTheme">
     <NuxtLayout fallback="default">
       <NuxtPage />
     </NuxtLayout>
@@ -11,5 +9,5 @@
 </template>
 
 <script setup lang="ts">
-
+const { getCurrentTheme } = useThemeProvider()
 </script>

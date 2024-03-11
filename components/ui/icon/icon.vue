@@ -25,7 +25,7 @@ const customStyle = computed(() => {
     return {}
   }
   return {
-    fontSize: `${size.value}px`,
+    fontSize: `${size.value}rem`,
   }
 })
 </script>

@@ -1,30 +1,49 @@
 <template>
   <div class="app-page-home">
-    <h1 class="app-page-home__title">
-      {{ $t('welcome') }}
-    </h1>
-
-    <ui-icon name="reorder" filled />
-
-    <p>This is production: Nuxt Core Template v3.10.0</p>
-
-    <p>Host: {{ baseUrl }}</p>
+    <LayoutNavigation class="app-page-home__navigation-menu" />
+    <AppMainBlock id="app" />
+    <AppProjectsList id="projects" class="app-page-home__projects-list" />
   </div>
 </template>
 
 <script lang="ts" setup>
+// Components
+import AppMainBlock from '~/components/main/AppMainBlock.vue'
+import AppProjectsList from '~/components/main/AppProjectsList.vue'
+// Composables
+import { observeVisibility } from '~/composables/useElementsVisisbleObserbve'
+// Types & Interfaces
+import type { TNavigationVisibleItemsCondition } from '~/shared/constants/navigation'
+
 definePageMeta({
   layout: 'default',
 })
 
-const config = useRuntimeConfig()
-const baseUrl = ref(config.public.BASE_URL)
+const { $bus } = useNuxtApp()
+
+onMounted(() => {
+  observeVisibility(['app', 'projects'], visibleId => {
+    $bus.emit('navigation:item:visible', visibleId as TNavigationVisibleItemsCondition)
+  })
+})
 </script>
 
 <style lang="scss">
 .app-page-home {
-  &__title {
-    color: dodgerblue;
+  padding: 16rem 18rem;
+
+  @media #{map-get($display-rules, 'md')} {
+    padding: 40rem 65rem;
+
+    &__navigation-menu {
+      margin: 0 -40rem;
+      width: fit-content;
+      position: fixed;
+    }
+
+    &__projects-list {
+      margin-top: 164rem;
+    }
   }
 }
 </style>

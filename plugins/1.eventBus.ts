@@ -1,5 +1,6 @@
 // Doc: https://github.com/developit/mitt
 import mitt from 'mitt'
+import type { TNavigationVisibleItemsCondition } from '~/shared/constants/navigation'
 
 export type ApplicationEvents = {
   /**
@@ -8,6 +9,7 @@ export type ApplicationEvents = {
    */
   'app:layout:created': void
   'app:layout:mounted': void
+  'navigation:item:visible': TNavigationVisibleItemsCondition
 }
 
 export default defineNuxtPlugin({

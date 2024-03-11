@@ -1,11 +1,10 @@
 <template>
-  <layout-provider v-slot="{ contentClasses }">
-    <div class="app-layout app-layout--default">
-      <div :class="contentClasses" class="app-layout__content">
-        <slot />
-      </div>
+  <div class="app-layout app-layout--default">
+    <LayoutHeader />
+    <div class="app-layout__content">
+      <slot />
     </div>
-  </layout-provider>
+  </div>
 </template>
 
 <script setup lang="ts">

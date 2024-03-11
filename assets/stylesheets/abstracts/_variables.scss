@@ -1,1 +1,33 @@
+@use "functions" as *;
+
 /* variables */
+
+// Breakpoints
+$display-breakpoints: (
+  'xs': '360px',
+  'sm': '768px',
+  'md': '1024px',
+  'lg': '1440px',
+  'xl': '1920px',
+);
+
+$display-rules: generate-breakpoints-rule($display-breakpoints);
+
+// Theme Colors
+$themes: (
+  light: (
+    background: #fff,
+    primary: #000,
+    surface: #f9f9f9,
+  ),
+  dark: (
+    background: #000,
+    primary: #fff,
+    surface: #fefefe,
+  )
+);
+
+$theme-palette: create-scss-colors-var(map-get($themes, 'light'));
+
+// Fonts
+$display-font: 'DotGothic16', sans-serif;

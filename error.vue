@@ -1,6 +1,5 @@
 <template>
   <div class="app-root app-root--error">
-    <NuxtPwaManifest />
 
     <NuxtLayout name="default">
       <pre>
