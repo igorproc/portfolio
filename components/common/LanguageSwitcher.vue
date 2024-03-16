@@ -29,12 +29,13 @@
 </template>
 
 <script setup lang="ts">
-const { locale, locales } = useI18n()
+const router = useRouter()
+const { locale, locales, setLocale } = useI18n()
 
 const isOpen = ref(false)
 
-const changeLocale = (selectedLocaleCode: string) => {
-  locale.value = selectedLocaleCode
+const changeLocale = async (selectedLocaleCode: string) => {
+  await setLocale(selectedLocaleCode)
   isOpen.value = false
 }
 

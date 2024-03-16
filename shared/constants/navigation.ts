@@ -1,7 +1,7 @@
 export enum ENavigationVisibleItems {
-  '#app',
+  '#home',
   '#projects',
-  '#about',
+  '#me',
   '#contact'
 }
 

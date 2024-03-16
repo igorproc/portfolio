@@ -1,8 +1,10 @@
 <template>
   <div class="app-page-home">
     <LayoutNavigation class="app-page-home__navigation-menu" />
-    <AppMainBlock id="app" />
+    <AppMainBlock id="home" class="app-page-home__main-block" />
     <AppProjectsList id="projects" class="app-page-home__projects-list" />
+    <AppAboutMe id="me" class="app-page-home__about-me" />
+    <AppContactMe id="contact" class="app-page-home__contact" />
   </div>
 </template>
 
@@ -14,6 +16,8 @@ import AppProjectsList from '~/components/main/AppProjectsList.vue'
 import { observeVisibility } from '~/composables/useElementsVisisbleObserbve'
 // Types & Interfaces
 import type { TNavigationVisibleItemsCondition } from '~/shared/constants/navigation'
+import AppAboutMe from '~/components/main/AppAboutMe.vue'
+import AppContactMe from '~/components/main/AppContactMe.vue'
 
 definePageMeta({
   layout: 'default',
@@ -22,7 +26,7 @@ definePageMeta({
 const { $bus } = useNuxtApp()
 
 onMounted(() => {
-  observeVisibility(['app', 'projects'], visibleId => {
+  observeVisibility(['home', 'projects', 'me', 'contact'], visibleId => {
     $bus.emit('navigation:item:visible', visibleId as TNavigationVisibleItemsCondition)
   })
 })
@@ -30,19 +34,31 @@ onMounted(() => {
 
 <style lang="scss">
 .app-page-home {
-  padding: 16rem 18rem;
+  &__projects-list,
+  &__about-me,
+  &__contact {
+    margin-top: 64rem;
+  }
 
   @media #{map-get($display-rules, 'md')} {
-    padding: 40rem 65rem;
-
     &__navigation-menu {
       margin: 0 -40rem;
       width: fit-content;
       position: fixed;
     }
 
-    &__projects-list {
+    &__projects-list,
+    &__about-me,
+    &__contact {
       margin-top: 164rem;
+    }
+  }
+
+  @media #{map-get($display-rules, 'xl')} {
+    &__projects-list,
+    &__about-me,
+    &__contact {
+      margin-top: 250rem;
     }
   }
 }

@@ -1,14 +1,14 @@
 <template>
-  <div class="app-projects-list">
+  <section class="app-projects-list">
     <div class="app-projects-list__title">
       <h2 class="app-projects-list__title-content">
-        {{ t('personal projects') }}
+        {{ t('projects.title') }}
       </h2>
 
-      <div class="app-projects-list__title--additional" />
+      <div class="app-projects-list__title--additional" :class="localeClass" />
     </div>
 
-    <div class="app-projects-list__items">
+    <div class="app-projects-list__items projects-items">
       <ui-card
         v-for="project in projectsList"
         :key="project.imageUrl"
@@ -16,12 +16,23 @@
         :title="project.title"
         :subtitle="project.subtitle"
         :description="project.description"
-        :button-label="t('see project')"
+        :button-label="t('projects.linkLabel')"
+        :url="project.url"
+        class="projects-items__item"
       >
-
+        <template #image-expand>
+          <div class="projects-items__item-tags-list">
+            <ui-badge
+              v-for="tag in project.tags"
+              :key="tag.id"
+              :title="tag.label"
+              :prepend-icon-name="tag.icon"
+            />
+          </div>
+        </template>
       </ui-card>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -45,38 +56,108 @@ type TProjectItem = {
   url: string,
 }
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
-const projectsList: TProjectItem[] = [
+const projectsList: TProjectItem[] = computed(() => [
   {
-    imageUrl: 'https://s3.specto.su/product-1.png',
-    title: t('Specto.su'),
-    subtitle: t('Ecommerce'),
-    description: t(`
-      Мой собственный проект - это интернет-магазин, основанный на Node.js, с использованием Nuxt 3 для веб-интерфейса и
-      NestJS для серверной части. В нем реализованы основные функции, включая страницы товаров, настраиваемые товары,
-      списки желаний и корзина покупок.
-    `),
+    imageUrl: '/images/projects/specto.png',
+    title: t('projects.specto.title'),
+    subtitle: t('projects.specto.subtitle'),
+    description: t('projects.specto.description'),
     tags: [
       {
         id: generateId(),
-        label: 'TypeScript',
-        icon: 'brands/typescript'
+        label: t('projects.tags.ts'),
+        icon: 'brands/typescript',
       },
       {
         id: generateId(),
-        label: 'Nuxt 3',
-        icon: 'brands/nuxtjs'
+        label: t('projects.tags.nuxt'),
+        icon: 'brands/nuxtjs',
       },
       {
         id: generateId(),
-        label: 'Nest JS',
+        label: t('projects.tags.nest'),
         icon: 'brands/nestjs',
-      }
+      },
     ],
-    url: 'https://specto.su'
-  }
-]
+    url: 'https://specto.su',
+  },
+  {
+    imageUrl: '/images/projects/any2text.png',
+    title: t('projects.any2text.title'),
+    subtitle: t('projects.any2text.subtitle'),
+    description: t('projects.any2text.description'),
+    tags: [
+      {
+        id: generateId(),
+        label: t('projects.tags.laravel'),
+        icon: 'brands/laravel',
+      },
+      {
+        id: generateId(),
+        label: t('projects.tags.css'),
+        icon: 'brands/css3',
+      },
+      {
+        id: generateId(),
+        label: t('projects.tags.js'),
+        icon: 'brands/javascript',
+      },
+    ],
+    url: 'https://any2text.ru/',
+  },
+  {
+    imageUrl: '/images/projects/primetime.png',
+    title: t('projects.primeTime.title'),
+    subtitle: t('projects.primeTime.subtitle'),
+    description: t('projects.primeTime.description'),
+    tags: [
+      {
+        id: generateId(),
+        label: t('projects.tags.ts'),
+        icon: 'brands/typescript',
+      },
+      {
+        id: generateId(),
+        label: t('projects.tags.vue'),
+        icon: 'brands/vuejs',
+      },
+      {
+        id: generateId(),
+        label: t('projects.tags.vuetify'),
+        icon: 'brands/vuetify',
+      },
+    ],
+    url: 'https://primetime.su',
+  },
+  {
+    imageUrl: '/images/projects/spotyfree.png',
+    title: t('projects.spotyFree.title'),
+    subtitle: t('projects.spotyFree.subtitle'),
+    description: t('projects.spotyFree.description'),
+    tags: [
+      {
+        id: generateId(),
+        label: t('projects.tags.ts'),
+        icon: 'brands/typescript',
+      },
+      {
+        id: generateId(),
+        label: t('projects.tags.nuxt'),
+        icon: 'brands/nuxtjs',
+      },
+      {
+        id: generateId(),
+        label: t('projects.tags.nest'),
+        icon: 'brands/nestjs',
+      },
+    ],
+    url: 'https://github.com/igorproc/iny-music-frontend',
+  },
+])
+
+const localeClass = computed(() => `--locale-${locale.value}`)
 </script>
 
 <style lang="scss">
@@ -89,12 +170,51 @@ const projectsList: TProjectItem[] = [
     &-content {
       color: map-get($theme-palette, 'primary');
       font-weight: 800;
-      text-align: right;
     }
+
     &--additional {
-      width: 7%;
+      margin-top: 3rem;
       height: 5rem;
       background-color: map-get($theme-palette, 'primary');
+
+      &.--locale-en {
+        width: 40%;
+      }
+
+      &.--locale-ru {
+        width: 42%;
+      }
+
+    }
+  }
+
+  &__items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10%;
+
+    .projects-items__item {
+      margin-top: 35rem;
+
+      &-tags-list {
+        display: flex;
+        align-items: center;
+        gap: 8rem;
+      }
+    }
+  }
+
+  @media #{map-get($display-rules, 'sm')} {
+    &__title--additional {
+      &.--locale-en {
+        width: 17%;
+      }
+
+      &.--locale-ru {
+        width: 18%;
+      }
     }
   }
 
@@ -102,6 +222,46 @@ const projectsList: TProjectItem[] = [
     &__title {
       &-content {
         font-size: 30rem;
+      }
+
+      &--additional {
+        &.--locale-en {
+          width: 14%;
+        }
+
+        &.--locale-ru {
+          width: 14.5%;
+        }
+      }
+    }
+
+    &__items {
+      .projects-items__item {
+        margin-top: 80rem;
+      }
+    }
+  }
+
+  @media #{map-get($display-rules, 'lg')} {
+    &__title--additional {
+      &.--locale-en {
+        width: 7%;
+      }
+
+      &.--locale-ru {
+        width: 10%;
+      }
+    }
+  }
+
+  @media #{map-get($display-rules, 'xl')} {
+    &__items {
+      gap: 25%;
+    }
+
+    &__title--additional {
+      &.--locale-ru {
+        width: 7.3%;
       }
     }
   }

@@ -20,11 +20,11 @@
         {{ description }}
       </span>
       <div class="ui-card__content-actions card-actions">
-        <a :href="url" class="card-actions__see-more">
+        <a :href="url" target="_blank" class="card-actions__see-more">
           <span class="card-actions__see-more-label">
             {{ buttonLabel }}
           </span>
-          <div class="card-actions__see-more--additional" />
+          <div class="card-actions__see-more--additional" :class="localeClass" />
         </a>
       </div>
     </div>
@@ -49,11 +49,16 @@ const {
   imageUrl,
   url,
 } = toRefs(props)
+
+const { locale } = useI18n()
+
+const localeClass = computed(() => `--locale-${locale.value}`)
 </script>
 
 <style lang="scss" scoped>
 .ui-card {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 16rem;
 
@@ -63,13 +68,14 @@ const {
     .card-image {
       &__image {
         object-fit: cover;
+        width: 100%;
       }
 
       &__expand {
         position: absolute;
         bottom: 0;
         right: 0;
-        padding: 16rem 32rem;
+        padding: 6rem 2rem;
       }
     }
   }
@@ -88,6 +94,7 @@ const {
       }
 
       .card-top-content__subtitle {
+        color: map-get($theme-palette, 'primary');
         font-weight: 800;
       }
     }
@@ -101,15 +108,51 @@ const {
       margin-top: 12rem;
 
       .card-actions__see-more {
+        text-decoration: unset;
+
         &-label {
           color: map-get($theme-palette, 'primary');
           font-size: 18rem;
           font-weight: 600;
         }
+
         &--additional {
-          width: 9%;
           height: 2rem;
           background: map-get($theme-palette, 'primary');
+
+          &.--locale-en {
+            width: 9%;
+          }
+
+          &.--locale-ru {
+            width: 33.5%;
+          }
+        }
+      }
+    }
+  }
+
+  @media #{map-get($display-rules, 'sm')} {
+    flex-direction: row;
+
+    .ui-card__image-container {
+      .card-image {
+        &__image {
+          width: 250rem;
+        }
+      }
+    }
+
+    &__content-actions {
+      .card-actions__see-more {
+        &--additional {
+          &.--locale-en {
+            width: 6.4%;
+          }
+
+          &.--locale-ru {
+            width: 23%;
+          }
         }
       }
     }
@@ -119,9 +162,10 @@ const {
     width: 567rem;
     height: 233rem;
 
-    &__image-container {
+    .ui-card__image-container {
       .card-image {
         &__image {
+          width: 233rem;
           height: 233rem;
         }
       }
@@ -130,15 +174,25 @@ const {
     &__content-top {
       .card-top-content {
         display: flex;
-
-        &__title {
-
-        }
       }
     }
 
     &__description {
       font-size: 12rem;
+    }
+
+    &__content-actions {
+      .card-actions__see-more {
+        &--additional {
+          &.--locale-en {
+            width: 9%;
+          }
+
+          &.--locale-ru {
+            width: 32.5%;
+          }
+        }
+      }
     }
   }
 }

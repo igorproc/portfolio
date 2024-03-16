@@ -121,7 +121,7 @@ input {
 
 [type="search"] {
   -webkit-appearance: textfield; /* Correct the odd appearance in Chrome and Safari */
-  outline-offset: -2px; /* Correct the outline style in Safari */
+  outline-offset: -2rem; /* Correct the outline style in Safari */
 }
 
 [type="search"]::-webkit-search-cancel-button,
@@ -179,7 +179,7 @@ button:-moz-focusring,
 [type="button"]::-moz-focus-inner,
 [type="reset"]::-moz-focus-inner,
 [type="submit"]::-moz-focus-inner {
-  outline: 1px dotted ButtonText;
+  outline: 1rem dotted ButtonText;
 }
 
 button,

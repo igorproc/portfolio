@@ -1,5 +1,5 @@
 <template>
-  <div class="app-main-block">
+  <section class="app-main-block">
     <div class="app-main-block__spacer" />
     <h1 class="app-main-block__title">
       {{ t('main.title') }}
@@ -9,7 +9,7 @@
     >
       <CommonThemeChanger />
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -57,6 +57,10 @@ const { t } = useI18n()
       rotate: 180deg;
       align-self: flex-end;
     }
+  }
+
+  @media #{map-get($display-rules, 'xl')} {
+    height: 650rem;
   }
 }
 </style>

@@ -4,15 +4,22 @@
 
     <div class="app-header__actions">
       <CommonLanguageSwitcher class="app-header__actions-language-switcher" />
-      <button class="app-header__actions-navigation">
-        <ui-icon name="common/menu" :size="22" color="" />
+      <button class="app-header__actions-change-theme" @click="theme.changeTheme">
+        <ui-icon :name="themeIcon" :size="22" />
       </button>
     </div>
   </header>
 </template>
 
 <script setup lang="ts">
+const theme = useThemeProvider()
 
+const themeIcon = computed(() => {
+  if (theme.getCurrentTheme.value.currentTheme === 'dark') {
+    return 'common/sun'
+  }
+  return 'common/moon'
+})
 </script>
 
 <style lang="scss">
@@ -27,7 +34,8 @@
     align-items: center;
     gap: 8rem;
 
-    .app-header__actions-navigation {
+    &-change-theme {
+      margin-bottom: 4rem;
       .ui-icon {
         color: map-get($theme-palette, 'primary');
       }
@@ -37,7 +45,7 @@
   @media #{map-get($display-rules, 'md')} {
     padding: 40rem 80rem;
 
-    .app-header__actions-navigation {
+    &__actions-change-theme {
       display: none;
     }
   }

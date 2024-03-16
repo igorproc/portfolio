@@ -31,7 +31,7 @@ type TNavigationItem = {
 const linksList = ref<TNavigationItem[]>([
   {
     name: t('navigation.home'),
-    link: '#app',
+    link: '#home',
     active: true,
   },
   {
@@ -41,7 +41,7 @@ const linksList = ref<TNavigationItem[]>([
   },
   {
     name: t('navigation.aboutMe'),
-    link: '#about',
+    link: '#me',
     active: false,
   },
   {
@@ -93,7 +93,7 @@ $bus.on(
     .app-navigation-item--active {
       height: 10rem;
       width: 2rem;
-      background: var(--color-primary);
+      background: map-get($theme-palette, 'primary');
       align-self: end;
     }
   }
@@ -106,6 +106,14 @@ $bus.on(
       .app-navigation__item-link {
         writing-mode: vertical-lr;
         transform: rotate(180deg);
+      }
+    }
+  }
+
+  @media #{map-get($display-rules, 'xl')} {
+    &__item {
+      .app-navigation__item-link {
+        font-size: 18rem;
       }
     }
   }

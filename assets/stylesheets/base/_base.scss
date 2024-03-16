@@ -5,6 +5,7 @@
 }
 
 html {
+  scroll-behavior: smooth;
   overflow: hidden;
   font-size: calc(1vw / 3.6);
 
@@ -27,6 +28,5 @@ html {
 
 body {
   text-rendering: optimizeLegibility;
-  scroll-behavior: smooth;
   font-family: 'Manrope', sans-serif;
 }

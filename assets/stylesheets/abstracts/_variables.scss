@@ -8,7 +8,7 @@ $display-breakpoints: (
   'sm': '768px',
   'md': '1024px',
   'lg': '1440px',
-  'xl': '1920px',
+  'xl': '1800px',
 );
 
 $display-rules: generate-breakpoints-rule($display-breakpoints);
@@ -17,11 +17,13 @@ $display-rules: generate-breakpoints-rule($display-breakpoints);
 $themes: (
   light: (
     background: #fff,
+    background-shadow: rgba(225, 225, 225, 0.25),
     primary: #000,
     surface: #f9f9f9,
   ),
   dark: (
     background: #000,
+    background-shadow: rgba(0, 0, 0, 0.25),
     primary: #fff,
     surface: #fefefe,
   )
