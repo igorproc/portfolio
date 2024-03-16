@@ -47,6 +47,8 @@ export default defineNuxtConfig({
     '@nuxtjs/device',
     // https://google-fonts.nuxtjs.org/
     '@nuxtjs/google-fonts',
+    //
+    'nuxt-gtag',
   ],
   postcss: {
     plugins: {
@@ -80,6 +82,10 @@ export default defineNuxtConfig({
       'DotGothic16': [400],
       'Manrope': '300..800'
     },
+  },
+  gtag: {
+    enabled: Boolean(process.env.APP_IS_PROD),
+    id: 'G-25BVNEEX4B',
   },
   runtimeConfig: {
     public: {
