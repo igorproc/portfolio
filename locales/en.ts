@@ -54,8 +54,13 @@ export default defineI18nLocale(() => {
       biography: {
         name: 'Igor Prosvirnin',
         description: 'I\'m more than in love with Front-End.' +
-        'My experience with web applications has made me extremely critical of design,' +
-        'architecture, clean code, and many other resources.'
+          'My experience with web applications has made me extremely critical of design,' +
+          'architecture, clean code, and many other resources.',
+        linkList: {
+          telegram: 'https://t.me/pr0s1k',
+          email: `mailto:type19790098{'@'}gmail.com`,
+          cv: '/documents/cv-en.pdf',
+        },
       },
       skillsList: {
         first: {
@@ -70,7 +75,7 @@ export default defineI18nLocale(() => {
       },
     },
     contactMe: {
-      title: 'contact me'
+      title: 'contact me',
     },
     main: {
       title: 'front-end.web(developer)',

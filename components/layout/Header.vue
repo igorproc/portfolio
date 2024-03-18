@@ -4,7 +4,7 @@
 
     <div class="app-header__actions">
       <CommonLanguageSwitcher class="app-header__actions-language-switcher" />
-      <button class="app-header__actions-change-theme" @click="theme.changeTheme">
+      <button aria-label="Click to change current theme" class="app-header__actions-change-theme" @click="theme.changeTheme">
         <ui-icon :name="themeIcon" :size="22" />
       </button>
     </div>

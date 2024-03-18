@@ -55,6 +55,11 @@ export default defineI18nLocale(() => {
         name: 'Игорь Просвирнин',
         description: `Я более чем влюблен в Front-End. Мой опыт работы с веб приложениями сделал меня крайне критичным к дизайну, архитектуре,
         чистому коду и многим другим ресурсам.`,
+        linkList: {
+          telegram: `https://t.me/pr0s1k`,
+          email: `mailto:pr0s1k{'@'}yandex.ru`,
+          cv: `/documents/cv-ru.pdf`,
+        },
       },
       skillsList: {
         first: {

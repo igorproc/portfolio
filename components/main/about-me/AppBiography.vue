@@ -30,25 +30,25 @@
 // Utils
 import { generateId } from '~/utils/generateId'
 
-const biographyLinkList = [
+const { t } = useI18n()
+
+const biographyLinkList = reactive([
   {
     id: generateId(),
     label: 'telegram',
-    link: 'https://t.me/pr0s1k',
+    link: t('aboutMe.biography.linkList.telegram'),
   },
   {
     id: generateId(),
     label: 'email',
-    link: 'mailto:type19790098@gmail.com',
+    link: t('aboutMe.biography.linkList.email'),
   },
   {
     id: generateId(),
     label: 'cv',
-    link: '/documents/cv-ru.pdf',
+    link: t('aboutMe.biography.linkList.cv'),
   },
-]
-
-const { t } = useI18n()
+])
 </script>
 
 <style lang="scss">
