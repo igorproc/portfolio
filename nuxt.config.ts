@@ -25,7 +25,12 @@ export default defineNuxtConfig({
         path: '~/components/ui',
         pathPrefix: true,
         prefix: 'Ui',
-      }
+      },
+      {
+        path: '~/components',
+        pathPrefix: true,
+        prefix: 'App',
+      },
     ],
   },
   css: [
@@ -74,8 +79,8 @@ export default defineNuxtConfig({
       },
       {
         code: 'ru',
-        file: 'ru.ts'
-      }
+        file: 'ru.ts',
+      },
     ],
     strategy: 'prefix_except_default',
     vueI18n: './configs/i18n.config.ts',
@@ -85,7 +90,7 @@ export default defineNuxtConfig({
     prefetch: true,
     families: {
       'DotGothic16': [400],
-      'Manrope': '300..800'
+      'Manrope': '300..800',
     },
   },
   gtag: {

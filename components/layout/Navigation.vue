@@ -11,7 +11,10 @@
       >
         {{ link.name }}
       </a>
-      <div v-if="link.active" class="app-navigation-item--active" />
+      <div
+        v-if="link.active"
+        class="app-navigation__item-active"
+      />
     </div>
   </aside>
 </template>
@@ -85,12 +88,12 @@ $bus.on(
   &__item {
     display: flex;
 
-    .app-navigation__item-link {
+    &-link {
       color: map-get($theme-palette, 'primary');
       text-decoration: unset;
     }
 
-    .app-navigation-item--active {
+    &-active {
       height: 10rem;
       width: 2rem;
       background: map-get($theme-palette, 'primary');
@@ -103,7 +106,7 @@ $bus.on(
     &__item {
       font-size: 14rem;
 
-      .app-navigation__item-link {
+      &-link {
         writing-mode: vertical-lr;
         transform: rotate(180deg);
       }
@@ -112,7 +115,7 @@ $bus.on(
 
   @media #{map-get($display-rules, 'xl')} {
     &__item {
-      .app-navigation__item-link {
+      &-link {
         font-size: 18rem;
       }
     }

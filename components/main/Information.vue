@@ -7,18 +7,14 @@
 
       <div class="app-about-me__title--additional" :class="localeClass" />
     </div>
-    <AppBiography class="app-about-me__biography" />
-    <AppKeySkills class="app-about-me__key-skills-list" />
-    <AppSkillsList class="app-about-me__skills-list" />
+
+    <AppAboutMeBiography class="app-about-me__biography" />
+    <AppAboutMeKeySkills class="app-about-me__key-skills-list" />
+    <AppAboutMeSkills class="app-about-me__skills-list" />
   </section>
 </template>
 
 <script setup lang="ts">
-// Components
-import AppKeySkills from '~/components/main/about-me/AppKeySkills.vue'
-import AppBiography from '~/components/main/about-me/AppBiography.vue'
-import AppSkillsList from '~/components/main/about-me/AppSkillsList.vue'
-
 const { t, locale } = useI18n()
 
 const localeClass = computed(() => `--locale-${locale.value}`)

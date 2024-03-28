@@ -1,14 +1,14 @@
 <template>
-  <section class="app-projects-list">
-    <div class="app-projects-list__title">
-      <h2 class="app-projects-list__title-content">
+  <section class="app-projects">
+    <div class="app-projects__title">
+      <h2 class="app-projects__title-content">
         {{ t('projects.title') }}
       </h2>
 
-      <div class="app-projects-list__title--additional" :class="localeClass" />
+      <div class="app-projects__title--additional" :class="localeClass" />
     </div>
 
-    <div class="app-projects-list__items projects-items">
+    <div class="app-projects__list">
       <ui-card
         v-for="project in projectsList"
         :key="project.imageUrl"
@@ -18,10 +18,10 @@
         :description="project.description"
         :button-label="t('projects.linkLabel')"
         :url="project.url"
-        class="projects-items__item"
+        class="app-projects__list-item"
       >
         <template #image-expand>
-          <div class="projects-items__item-tags-list">
+          <div class="app-projects__list-item-tags">
             <ui-badge
               v-for="tag in project.tags"
               :key="tag.id"
@@ -58,7 +58,7 @@ type TProjectItem = {
 
 const { t, locale } = useI18n()
 
-const projectsList: TProjectItem[] = computed(() => [
+const projectsList = computed<TProjectItem[]>(() => [
   {
     imageUrl: '/images/projects/specto.png',
     title: t('projects.specto.title'),
@@ -161,7 +161,7 @@ const localeClass = computed(() => `--locale-${locale.value}`)
 </script>
 
 <style lang="scss">
-.app-projects-list {
+.app-projects {
   &__title {
     display: flex;
     flex-direction: column;
@@ -188,17 +188,17 @@ const localeClass = computed(() => `--locale-${locale.value}`)
     }
   }
 
-  &__items {
+  &__list {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     gap: 10%;
 
-    .projects-items__item {
+    &-item {
       margin-top: 35rem;
 
-      &-tags-list {
+      &-tags {
         display: flex;
         align-items: center;
         gap: 8rem;
@@ -235,10 +235,8 @@ const localeClass = computed(() => `--locale-${locale.value}`)
       }
     }
 
-    &__items {
-      .projects-items__item {
-        margin-top: 80rem;
-      }
+    &__list {
+      margin-top: 80rem;
     }
   }
 
@@ -255,7 +253,7 @@ const localeClass = computed(() => `--locale-${locale.value}`)
   }
 
   @media #{map-get($display-rules, 'xl')} {
-    &__items {
+    &__list {
       gap: 25%;
     }
 

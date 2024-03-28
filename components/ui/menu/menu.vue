@@ -42,7 +42,7 @@ useClientOnly(() => {
 .ui-menu {
   position: relative;
 
-  & &__items {
+  &__items {
     position: absolute;
     right: 0;
     background-color: map-get($theme-palette, 'surface');

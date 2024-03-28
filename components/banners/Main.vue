@@ -1,11 +1,11 @@
 <template>
-  <section class="app-main-block">
-    <div class="app-main-block__spacer" />
-    <h1 class="app-main-block__title">
+  <section class="app-main-banner">
+    <div class="app-main-banner__spacer" />
+    <h1 class="app-main-banner__title">
       {{ t('main.title') }}
     </h1>
     <div
-      class="app-main-block__theme-changer"
+      class="app-main-banner__theme-changer"
     >
       <CommonThemeChanger />
     </div>
@@ -17,7 +17,7 @@ const { t } = useI18n()
 </script>
 
 <style lang="scss">
-.app-main-block {
+.app-main-banner {
   height: 250rem;
   display: flex;
   align-items: center;

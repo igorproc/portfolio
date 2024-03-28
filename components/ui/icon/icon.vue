@@ -33,6 +33,7 @@ const customStyle = computed(() => {
 <style lang="scss">
 .ui-icon {
   color: map-get($theme-palette, 'primary');
+
   &.nuxt-icon svg {
     margin-bottom: 0;
     width: 1em;

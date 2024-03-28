@@ -8,14 +8,13 @@
 
 <style lang="scss">
 .app-logo {
-  & &__text {
+  &__text {
     font-weight: 800;
     color: map-get($theme-palette, 'primary')
   }
 
-
   @media #{map-get($display-rules, 'md')} {
-    & &__text {
+    &__text {
       font-size: 32rem;
     }
   }

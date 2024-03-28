@@ -62,7 +62,7 @@ const localeClass = computed(() => `--locale-${locale.value}`)
   align-items: center;
   gap: 16rem;
 
-  .ui-card__image-container {
+  &__image-container {
     position: relative;
 
     .card-image {
@@ -135,7 +135,7 @@ const localeClass = computed(() => `--locale-${locale.value}`)
   @media #{map-get($display-rules, 'sm')} {
     flex-direction: row;
 
-    .ui-card__image-container {
+    &__image-container {
       .card-image {
         &__image {
           width: 250rem;
@@ -162,7 +162,7 @@ const localeClass = computed(() => `--locale-${locale.value}`)
     width: 567rem;
     height: 233rem;
 
-    .ui-card__image-container {
+    &__image-container {
       .card-image {
         &__image {
           width: 233rem;

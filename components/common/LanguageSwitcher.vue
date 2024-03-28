@@ -3,24 +3,24 @@
     <template #activator>
       <button
         aria-label="Click here for change language"
-        class="language-switcher__action"
+        class="app-language-switcher__action"
         @click="isOpen = !isOpen"
       >
-        <span class="language-switcher__action-label">
+        <span class="app-language-switcher__action-label">
           {{ locale }}
         </span>
       </button>
     </template>
 
-    <div class="language-switcher__menu language-switcher-menu">
+    <div class="app-language-switcher__menu">
       <button
         v-for="availableLocale in locales"
         :key="availableLocale.code"
         :aria-label="getAriaText(availableLocale.code)"
-        class="language-switcher-menu__item"
+        class="app-language-switcher__menu-item"
         @click="changeLocale(availableLocale.code)"
       >
-        <span class="language-switcher-menu__item-label">
+        <span class="app-language-switcher__menu-item-label">
           {{ availableLocale.code }}
         </span>
       </button>
@@ -46,30 +46,30 @@ const getAriaText = (code: string) => {
 
 <style lang="scss">
 .app-language-switcher {
-  .language-switcher__action {
+  &__action {
     &-label {
       font-weight: bold;
       color: map-get($theme-palette, 'primary');
     }
   }
 
-  .language-switcher__menu {
+  &__menu {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
 
-    .language-switcher-menu__item {
+    &-item {
       padding: 8rem 32rem;
 
-      .language-switcher-menu__item-label {
+      &-label {
         font-weight: bold;
       }
     }
   }
 
   @media #{map-get($display-rules, 'md')} {
-    .language-switcher__action {
+    &__action {
       padding: 8rem 16rem;
 
       &-label {
@@ -77,14 +77,9 @@ const getAriaText = (code: string) => {
       }
     }
 
-    .language-switcher__menu {
-      .language-switcher__action {
+    &__menu {
+      &__action {
         padding: 12rem 8rem;
-
-        .language-switcher__action {
-          font-weight: bold;
-          font-size: 18rem;
-        }
       }
     }
   }
