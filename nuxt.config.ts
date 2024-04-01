@@ -94,7 +94,6 @@ export default defineNuxtConfig({
     },
   },
   gtag: {
-    enabled: Boolean(process.env.APP_IS_PROD),
     id: 'G-25BVNEEX4B',
   },
   runtimeConfig: {

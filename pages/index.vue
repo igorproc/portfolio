@@ -13,8 +13,6 @@
 import { observeVisibility } from '~/composables/useElementsVisisbleObserbve'
 // Types & Interfaces
 import type { TNavigationVisibleItemsCondition } from '~/shared/constants/navigation'
-import AppAboutMe from '~/components/main/Information.vue'
-import AppContactMe from '~/components/main/Contact.vue'
 
 definePageMeta({
   layout: 'default',
