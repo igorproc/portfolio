@@ -90,9 +90,10 @@ export default <Partial<NuxtOptions['app']['head']>>{
  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
  ym(96761628, "init", {
-      clickmap:true,
-      trackLinks:true,
-      accurateTrackBounce:true
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true,
  });`
     },
   ],
