@@ -46,7 +46,7 @@ const biographyLinkList = reactive([
   {
     id: generateId(),
     label: 'cv',
-    link: t('aboutMe.biography.linkList.cv'),
+    link: '/documents/cv-ru.pdf',
   },
 ])
 </script>
