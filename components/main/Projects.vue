@@ -81,31 +81,7 @@ const projectsList = computed<TProjectItem[]>(() => [
         icon: 'brands/nestjs',
       },
     ],
-    url: 'https://specto.su',
-  },
-  {
-    imageUrl: '/images/projects/any2text.png',
-    title: t('projects.any2text.title'),
-    subtitle: t('projects.any2text.subtitle'),
-    description: t('projects.any2text.description'),
-    tags: [
-      {
-        id: generateId(),
-        label: t('projects.tags.laravel'),
-        icon: 'brands/laravel',
-      },
-      {
-        id: generateId(),
-        label: t('projects.tags.css'),
-        icon: 'brands/css3',
-      },
-      {
-        id: generateId(),
-        label: t('projects.tags.js'),
-        icon: 'brands/javascript',
-      },
-    ],
-    url: 'https://any2text.ru/',
+    url: 'https://github.com/igorproc/vrum-frontend',
   },
   {
     imageUrl: '/images/projects/primetime.png',
@@ -130,30 +106,6 @@ const projectsList = computed<TProjectItem[]>(() => [
       },
     ],
     url: 'https://primetime.su',
-  },
-  {
-    imageUrl: '/images/projects/spotyfree.png',
-    title: t('projects.spotyFree.title'),
-    subtitle: t('projects.spotyFree.subtitle'),
-    description: t('projects.spotyFree.description'),
-    tags: [
-      {
-        id: generateId(),
-        label: t('projects.tags.ts'),
-        icon: 'brands/typescript',
-      },
-      {
-        id: generateId(),
-        label: t('projects.tags.nuxt'),
-        icon: 'brands/nuxtjs',
-      },
-      {
-        id: generateId(),
-        label: t('projects.tags.nest'),
-        icon: 'brands/nestjs',
-      },
-    ],
-    url: 'https://github.com/igorproc/iny-music-frontend',
   },
 ])
 
